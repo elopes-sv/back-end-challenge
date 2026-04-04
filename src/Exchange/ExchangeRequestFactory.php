@@ -82,7 +82,9 @@ class ExchangeRequestFactory
      */
     private function _isValidNumber(string $value): bool
     {
-        return is_numeric($value) && (float) $value >= 0;
+        $number = (float) $value;
+
+        return is_numeric($value) && is_finite($number) && $number >= 0;
     }
 
     /**
